@@ -17,7 +17,7 @@ class Contacts
       getdata += "&authInfo.authByEmail.password=%s" % CGI.escape(password)
       # data, resp, cookies, forward = get(CONTACT_LIST_URL + getdata)
       
-      data = Net::HTTP.get_response(URI.parse(url)).body
+      data = Net::HTTP.get_response(URI.parse(CONTACT_LIST_URL + getdata)).body
       
       # if resp.code_type != Net::HTTPOK
       #        raise ConnectionError, PROTOCOL_ERROR
