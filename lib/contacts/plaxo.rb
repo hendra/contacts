@@ -15,11 +15,13 @@ class Contacts
     def contacts
       getdata = "&authInfo.authByEmail.email=%s" % CGI.escape(login)
       getdata += "&authInfo.authByEmail.password=%s" % CGI.escape(password)
-      data, resp, cookies, forward = get(CONTACT_LIST_URL + getdata)
+      # data, resp, cookies, forward = get(CONTACT_LIST_URL + getdata)
       
-      if resp.code_type != Net::HTTPOK
-        raise ConnectionError, PROTOCOL_ERROR
-      end
+      data = Net::HTTP.get_response(URI.parse(url)).body
+      
+      # if resp.code_type != Net::HTTPOK
+      #        raise ConnectionError, PROTOCOL_ERROR
+      #      end
       
       parse data
     end # contacts
