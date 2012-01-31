@@ -17,6 +17,7 @@ For a long time, the only way to get a list of contacts from your free online em
 	Contacts::Hotmail.new(login, password).contacts # => [["name", "foo@bar.com"], ["another name", "bow@wow.com"]]
 	Contacts::Yahoo.new(login, password).contacts
 	Contacts::Gmail.new(login, password).contacts
+	Contacts::Plaxo.new(login, password).contacts
 	
 	Contacts.new(:gmail, login, password).contacts
 	Contacts.new(:hotmail, login, password).contacts
